@@ -1,1 +1,0 @@
-# capstone-checkmate-prototype
