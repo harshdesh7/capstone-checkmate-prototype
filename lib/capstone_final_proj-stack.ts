@@ -8,6 +8,10 @@ export class CapstoneFinalProjStack extends cdk.Stack {
 
     // The code that defines your stack goes here
 
+    //  - uuid for everything
+    // assign roles in cognito, no passwords in ddb
+    // make IAM roles, be very specific with them
+
     //NOTE: With DynamoDB tables and its NoSQL nature, cannot predefine attributes outside of keys
     //all attributes listed will have to be manually defined with each PutItem request
 
@@ -39,7 +43,7 @@ export class CapstoneFinalProjStack extends cdk.Stack {
       partitionKey: { name: 'restId', type: dynamodb.AttributeType.STRING },
       removalPolicy: cdk.RemovalPolicy.DESTROY
     });
-    new cdk.CfnOutput(this, 'ddbTable', { value: restTable.tableName });
+    new cdk.CfnOutput(this, 'restaurantTable', { value: restTable.tableName });
 
     // =====================================================================================
     // Restuarant DynamoDB table for transactions
@@ -54,7 +58,7 @@ export class CapstoneFinalProjStack extends cdk.Stack {
       partitionKey: { name: 'restId', type: dynamodb.AttributeType.STRING },
       removalPolicy: cdk.RemovalPolicy.DESTROY
     });
-    new cdk.CfnOutput(this, 'ddbTable', { value: restTranTable.tableName });
+    new cdk.CfnOutput(this, 'transactionTable', { value: restTranTable.tableName });
 
 
     // =====================================================================================
@@ -73,28 +77,34 @@ export class CapstoneFinalProjStack extends cdk.Stack {
       sortKey: {name: 'restId', type: dynamodb.AttributeType.STRING},
       removalPolicy: cdk.RemovalPolicy.DESTROY
     });
-    new cdk.CfnOutput(this, 'ddbTable', { value: empTable.tableName });
+    new cdk.CfnOutput(this, 'waiterTable', { value: empTable.tableName });
 
     
     // =====================================================================================
     // Active Bill Split DynamoDB table 
     // Will need to set up DDB stream (w/ lambda function processor) between this
     // and transaction table
+
+    // Option 2:
+    // When pressing finish button, API call made
+    // that is hooked up to lambda, that takes final split breakdown
     // =====================================================================================
     
     //Attributes:
     //  - tableId: string (primary/partition key)
     //  - restuarantId: string (secondary/sort key)
+    //  - composite key primary (tableId+restaurantId)
+
     //  - activeSession: bool
     //  - currentAmt: double
     //  - sessionLeader: str (this will be emailId)
     //  - breakdown: [{payerId: str, amt: double}]
-    const sessionTable = new dynamodb.Table(this, 'RestaurantTables', {
+    const sessionTable = new dynamodb.Table(this, 'SessionTable', {
       partitionKey: { name: 'tableId', type: dynamodb.AttributeType.STRING },
       sortKey: {name: 'restId', type: dynamodb.AttributeType.STRING},
       removalPolicy: cdk.RemovalPolicy.DESTROY
     });
-    new cdk.CfnOutput(this, 'ddbTable', { value: sessionTable.tableName });
+    new cdk.CfnOutput(this, 'sessionTable', { value: sessionTable.tableName });
 
   }
 }
