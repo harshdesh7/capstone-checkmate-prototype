@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <link rel="shortcut icon" type="image/png" href="https://animaproject.s3.amazonaws.com/home/favicon.png" />
+    <meta name="og:type" content="website" />
+    <meta name="twitter:card" content="photo" />
+    <link rel="stylesheet" type="text/css" href="css/iphone-11-pro-x-18.css" />
+    <style>
+      @import url("https://fonts.googleapis.com/css?family=Poppins:400,700,900,300,500,600|Roboto:300,700,500,700italic");
+
+      .component-wrapper a,
+      .screen a {
+        text-decoration: none;
+        display: contents;
+      }
+
+      .full-width-a {
+        width: 100%;
+      }
+
+      .full-height-a {
+        height: 100%;
+      }
+
+      .screen textarea:focus,
+      .screen input:focus {
+        outline: none;
+      }
+
+      .screen *,
+      .component-wrapper * {
+        box-sizing: border-box;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      .screen div {
+        -webkit-text-size-adjust: none;
+      }
+
+      .container-center-vertical,
+      .container-center-horizontal {
+        pointer-events: none;
+        display: flex;
+        flex-direction: row;
+        padding: 0;
+        margin: 0;
+      }
+
+      .container-center-vertical {
+        align-items: center;
+        height: 100%;
+      }
+
+      .container-center-horizontal {
+        justify-content: center;
+        width: 100%;
+      }
+
+      .container-center-vertical > *,
+      .container-center-horizontal > * {
+        pointer-events: auto;
+        flex-shrink: 0;
+      }
+
+      .component-wrapper,
+      .screen {
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+        word-break: break-all;
+        word-break: break-word;
+      }
+
+      .auto-animated div {
+        opacity: 0;
+        position: absolute;
+        --z-index: -1;
+      }
+
+      .auto-animated .container-center-vertical,
+      .auto-animated .container-center-horizontal {
+        opacity: 1;
+      }
+
+      .overlay {
+        position: absolute;
+        opacity: 0;
+        display: none;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        position: fixed;
+      }
+
+      .animate-appear {
+        opacity: 0;
+        display: block;
+        animation: reveal 0.3s ease-in-out 1 normal forwards;
+      }
+
+      .animate-disappear {
+        opacity: 1;
+        display: block;
+        animation: reveal 0.3s ease-in-out 1 reverse forwards;
+      }
+
+      .animate-nodelay {
+        animation-delay: 0s;
+      }
+
+      @keyframes reveal {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      .align-self-flex-start {
+        align-self: flex-start;
+      }
+      .align-self-flex-end {
+        align-self: flex-end;
+      }
+      .align-self-flex-center {
+        align-self: center;
+      }
+      .valign-text-middle {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .valign-text-bottom {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+      }
+      input:focus {
+        outline: none;
+      }
+      .component-wrapper,
+      .component-wrapper * {
+        pointer-events: none;
+      }
+
+      .component-wrapper a *,
+      .component-wrapper a,
+      .component-wrapper input,
+      .component-wrapper video,
+      .component-wrapper iframe,
+      .listeners-active,
+      .listeners-active * {
+        pointer-events: auto;
+      }
+
+      .hidden,
+      .hidden * {
+        visibility: hidden;
+        pointer-events: none;
+      }
+
+      .smart-layers-pointers,
+      .smart-layers-pointers * {
+        pointer-events: auto;
+        visibility: visible;
+      }
+
+      .component-wrapper.not-ready,
+      .component-wrapper.not-ready * {
+        visibility: hidden !important;
+      }
+
+      .listeners-active-click,
+      .listeners-active-click * {
+        cursor: pointer;
+      }
+
+      @import url("https://fonts.googleapis.com/css?family=Poppins:400,700,900,300,500,600|Roboto:300,700,500,700italic");
+      * {
+        box-sizing: border-box;
+      }
+      .border-0-5px-black-2 {
+        border: 0.5px solid var(--black-2);
+      }
+      .border-1px-black {
+        border: 1px solid var(--black);
+      }
+      .border-1px-white {
+        border: 1px solid var(--white);
+      }
+      .poppins-black-white-15px {
+        color: var(--white);
+        font-family: "Poppins", Helvetica;
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 900;
+      }
+      .poppins-medium-white-14px {
+        color: var(--white);
+        font-family: "Poppins", Helvetica;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 500;
+      }
+      .poppins-normal-white-24px {
+        color: var(--white);
+        font-family: "Poppins", Helvetica;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 400;
+      }
+      .poppins-semi-bold-white-18px {
+        color: var(--white);
+        font-family: "Poppins", Helvetica;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 600;
+      }
+      .roboto-bold-black-24px {
+        color: var(--black);
+        font-family: "Roboto", Helvetica;
+        font-size: 24px;
+        font-style: italic;
+        font-weight: 700;
+      }
+      .roboto-light-black-14px {
+        color: var(--black);
+        font-family: "Roboto", Helvetica;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 300;
+      }
+      .roboto-light-black-18px {
+        color: var(--black);
+        font-family: "Roboto", Helvetica;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 300;
+      }
+      .roboto-medium-black-14px {
+        color: var(--black);
+        font-family: "Roboto", Helvetica;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 500;
+      }
+      .roboto-medium-black-18px {
+        color: var(--black);
+        font-family: "Roboto", Helvetica;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 500;
+      }
+      .roboto-medium-black-24px {
+        color: var(--black);
+        font-family: "Roboto", Helvetica;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 500;
+      }
+      :root {
+        --aqua-forest: rgba(93, 176, 116, 1);
+        --aqua-forest-2: rgba(93, 176, 117, 1);
+        --black: rgba(0, 0, 0, 1);
+        --black-2: rgba(0, 0, 0, 0.04);
+        --oslo-gray: rgba(142, 142, 147, 1);
+        --rolling-stone: rgba(118, 118, 128, 0.12);
+        --silver: rgba(189, 189, 189, 1);
+        --white: rgba(255, 255, 255, 1);
+      }
+    </style>
+    <meta name="author" content="AnimaApp.com - Design to code, Automated." />
+  </head>
+  <body style="margin: 0; background: rgba(255, 255, 255, 1)">
+    <input type="hidden" id="anPageName" name="page" value="iphone-11-pro-x-18" />
+    <div class="container-center-horizontal">
+      <div class="iphone-11-pro-x-18 screen">
+        <div class="overlap-group-C61RwL">
+          <div class="rectangle-1-4eduM0"></div>
+          <div class="system-dark-status-bar-default-4eduM0">
+            <div class="time-EwRWMP poppins-black-white-15px">9:41</div>
+            <img class="cellular-connection-EwRWMP" src="img/cellular-connection@2x.svg" />
+            <img class="wifi-EwRWMP" src="img/wifi@2x.svg" />
+            <div class="battery-EwRWMP">
+              <div class="overlap-group1-bzTY9S">
+                <div class="border-wLzIuK border-1px-white"></div>
+                <div class="capacity-wLzIuK"></div>
+              </div>
+              <img class="cap-bzTY9S" src="img/cap-3@2x.svg" />
+            </div>
+          </div>
+          <img class="plate-1-4eduM0" src="img/plate-1@2x.png" />
+          <div class="menu-4eduM0">
+            <img class="bounds-flkIpC" src="img/bounds@2x.png" />
+            <img class="shape-flkIpC" src="img/shape@2x.svg" />
+          </div>
+          <div class="pasta-jays-4eduM0 poppins-normal-white-24px">Pasta Jay’s</div>
+        </div>
+        <div class="menu-C61RwL">
+          <div class="flex-row-SQ9Gz0">
+            <a href="iphone-11-pro-x-4.html"><img class="icon-1Wbicm" src="img/icon@2x.svg" /></a>
+            <div class="reviews-baked-lorenzo-1Wbicm roboto-medium-black-24px">Reviews - Baked Lorenzo</div>
+          </div>
+          <a href="iphone-11-pro-x-3.html">
+            <div class="group-2-SQ9Gz0">
+              <div class="flex-row-Ik7OTQ">
+                <div class="flex-col-C53rZT">
+                  <div class="flex-row-aCi1Gy">
+                    <img class="nounrating702221-1-HarXxT" src="img/noun-rating-702221-1-3@2x.png" />
+                    <div class="x3-days-ago-HarXxT roboto-medium-black-14px">3 Days Ago</div>
+                  </div>
+                  <div class="amazing-flavor-erfectly-cooked-aCi1Gy roboto-light-black-14px">
+                    Amazing flavor, definetly get the garlic bread for the side! The pasta was perfectly cooked.
+                  </div>
+                </div>
+                <img class="ellipse-2-C53rZT" src="img/ellipse-2@2x.png" />
+              </div>
+              <img class="line-2-Ik7OTQ" src="img/line-2-24@2x.svg" /></div
+          ></a>
+          <div class="overlap-group2-SQ9Gz0">
+            <a href="iphone-11-pro-x-3.html">
+              <div class="group-3-M2kxlM">
+                <img class="nounrating702214-1-113O14" src="img/noun-rating-702214-1-3@2x.png" />
+                <div class="overlap-group1-113O14">
+                  <div class="it-was-pretty-g-ch-tomato-sauce-54at9n roboto-light-black-14px">
+                    It was pretty good, a little too much tomato sauce.
+                  </div>
+                  <img class="line-2-54at9n" src="img/line-2-24@2x.svg" />
+                </div></div
+            ></a>
+            <a href="iphone-11-pro-x-3.html">
+              <div class="group-5-M2kxlM">
+                <div class="overlap-group5-RMhrVp">
+                  <img class="nounrating702214-1-ZA3dTy" src="img/noun-rating-702214-1-3@2x.png" />
+                  <div class="x1-week-ago-ZA3dTy roboto-medium-black-14px">1 Week Ago</div>
+                </div>
+                <div class="overlap-group4-RMhrVp">
+                  <div class="it-was-pretty-g-ch-tomato-sauce-mqqib2 roboto-light-black-14px">
+                    It was pretty good, a little too much tomato sauce.
+                  </div>
+                  <img class="line-2-mqqib2" src="img/line-2-24@2x.svg" />
+                </div></div
+            ></a>
+            <a href="iphone-11-pro-x-3.html">
+              <div class="group-4-M2kxlM">
+                <div class="flex-row-p2TMSN">
+                  <div class="flex-col-AdSZ0j">
+                    <div class="overlap-group6-0spwuw">
+                      <div class="x2-weeks-ago-t6hxge roboto-medium-black-14px">2 Weeks Ago</div>
+                      <img class="nounrating702214-1-t6hxge" src="img/noun-rating-702214-1-3@2x.png" />
+                    </div>
+                    <div class="i-got-it-with-c-really-liked-it-0spwuw roboto-light-black-14px">
+                      I got it with chicken and I really liked it.
+                    </div>
+                  </div>
+                  <img class="ellipse-2-AdSZ0j" src="img/ellipse-2-2@2x.png" />
+                </div>
+                <img class="line-2-p2TMSN" src="img/line-2-24@2x.svg" /></div
+            ></a>
+          </div>
+          <div class="overlap-group3-SQ9Gz0">
+            <a href="iphone-11-pro-x-3.html">
+              <div class="group-6-kBrP5g">
+                <div class="overlap-group4-8YWtJq">
+                  <img class="nounrating702214-1-xFtXSb" src="img/noun-rating-702214-1-3@2x.png" />
+                  <div class="x2-months-ago-xFtXSb roboto-medium-black-14px">2 Months Ago</div>
+                </div>
+                <div class="overlap-group1-8YWtJq">
+                  <div class="it-was-decent-i-le-saucy-for-me-xgxvSe roboto-light-black-14px">
+                    It was decent. I don’t love a lot of sauce so it was a little saucy for me.
+                  </div>
+                  <img class="line-2-xgxvSe" src="img/line-2-24@2x.svg" />
+                </div></div
+            ></a>
+            <a href="iphone-11-pro-x-3.html">
+              <div class="group-7-kBrP5g">
+                <div class="x3-months-ago-jN2zty roboto-medium-black-14px">3 Months Ago</div>
+                <div class="overlap-group5-jN2zty">
+                  <div class="not-really-what-and-very-mushy-dDJbWI roboto-light-black-14px">
+                    Not really what I was expecting. It was loast in the sauce and very mushy.
+                  </div>
+                  <img class="line-2-dDJbWI" src="img/line-2-24@2x.svg" />
+                </div></div
+            ></a>
+            <img class="nounrating702216-1-kBrP5g" src="img/noun-rating-702216-1@2x.png" />
+          </div>
+          <div class="group-8-SQ9Gz0">
+            <div class="flex-row-VpQDh0">
+              <div class="flex-col-Sh2yDD">
+                <div class="flex-row-8c2BoC">
+                  <img class="nounrating702221-1-YTCzcR" src="img/noun-rating-702221-1-3@2x.png" />
+                  <div class="x3-months-ago-YTCzcR roboto-medium-black-14px">3 Months Ago</div>
+                </div>
+                <div class="very-good-loved-cken-was-cooked-8c2BoC roboto-light-black-14px">
+                  Very good! Loved the way my chicken was cooked.
+                </div>
+              </div>
+              <img class="ellipse-2-Sh2yDD" src="img/ellipse-2-1@2x.png" />
+            </div>
+            <img class="line-2-VpQDh0" src="img/line-2-16@2x.svg" />
+          </div>
+          <div class="group-9-SQ9Gz0">
+            <div class="overlap-group7-sQAwx2">
+              <img class="nounrating702214-1-24IZYJ" src="img/noun-rating-702214-1-3@2x.png" />
+              <div class="x1-year-ago-24IZYJ roboto-medium-black-14px">1 Year Ago</div>
+            </div>
+            <div class="it-was-decent-i-le-saucy-for-me-sQAwx2 roboto-light-black-14px">
+              It was decent. I don’t love a lot of sauce so it was a little saucy for me.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
