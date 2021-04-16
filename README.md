@@ -16,6 +16,6 @@ These are the current dependacies
 ### Running
 
 1. ```sh
-  cd Node
-  npm run start
-    ```
+    cd Node
+    npm run start
+   ```
