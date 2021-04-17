@@ -42,5 +42,6 @@ And here is the schema for the `ActiveUserDB` database:
 
 ![user session schema](ActiveUserSchema.png)
 
+To look at the code for the mircoservice handler, check out `lambda_api_handler.py`. Ignore all the CloudFormation code as that ended up not being used.
 
 
