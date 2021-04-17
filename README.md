@@ -10,19 +10,19 @@ There are a multitude of API calls currently included for the lambda. All of the
 
 The actions determine what operation the microservice should do. Here are the following actions:
 * `adduser` - adds a user to a table session, as well as activates the user session. If the user is not in the user session database, it will add the user
-    * requires `action`, `username`, `tablename`
+    * additionally requires `username`, `tablename`
 * `changeamt` - changes current amount that user will contribute to the tab in an active session
-    * requires `action`, `username`
+    * additionally requires `username`
 * `additem` - adds amount to total table tab, corresponds to menu item being added
-    * requires `action`, `tablename`
+    * additionally requires `tablename`
 * `deleteitem` - deletes amount from total table tab, corresponds to menu item being removed
-    * requires `action`, `tablename`
+    * additionally requires `tablename`
 * `finish` - closes out active session at table, returns back final bill split if successful
-    * requires `action`, `tablename`
+    * additionally requires `tablename`
 * `breakdown` - returns current amount of money each user at the table is contributing
-    * requires `action`, `tablename`
+    * additionally requires `tablename`
 * `total` - returns current tab amount at a table
-    * requires `action`, `tablename`
+    * additionally requires `tablename`
 
 The query string will look like this: `GET <api_domain>/apicall?action=<action>&username=<user_id>&tablename=<table_id>&amount=<amount>`. I would like to keep the API domain domain confidential (I wll give it separately) and only add the appropriate query string. It is not necessary to use all four like I did in this example.
 
