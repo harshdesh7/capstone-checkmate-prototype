@@ -26,6 +26,8 @@ The actions determine what operation the microservice should do. Here are the fo
 
 The query string will look like this: `GET <api_domain>/apicall?action=<action>&username=<user_id>&tablename=<table_id>&amount=<amount>`. I would like to keep the API domain domain confidential (I wll give it separately) and only add the appropriate query string. It is not necessary to use all four like I did in this example.
 
+For example to add user `user1` to table `tab1`, an api call would look like `curl -X GET "<api_domain>/apicall?action=adduser&username=user1&tablename=tab1"`
+
 ## Backend Schematics
 
 Here is the basic architecture for the backend databases and API:
