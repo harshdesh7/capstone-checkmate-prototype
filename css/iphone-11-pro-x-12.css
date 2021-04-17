@@ -102,7 +102,7 @@
   text-align: center;
   width: auto;
 }
-.iphone-11-pro-x-12 .flex-row-51qBGa {
+.iphone-11-pro-x-12 .user-row {
   align-items: flex-start;
   background-color: transparent;
   box-sizing: border-box;
@@ -131,21 +131,7 @@
   position: relative;
   width: auto;
 }
-.iphone-11-pro-x-12 .flex-row-dwb8Kj {
-  align-items: flex-start;
-  background-color: transparent;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: row;
-  flex-shrink: 1;
-  height: 21px;
-  justify-content: flex-start;
-  margin-left: 36px;
-  margin-top: 25px;
-  min-width: 152px;
-  position: relative;
-  width: auto;
-}
+
 .iphone-11-pro-x-12 .icon-1Wbicm {
   background-color: transparent;
   flex-shrink: 1;
@@ -228,21 +214,27 @@
   top: 0px;
   width: 375px;
 }
-.iphone-11-pro-x-12 .rectangle-2-z0dpoe {
+.iphone-11-pro-x-12 .check-box {
   background-color: var(--white);
   flex-shrink: 1;
   height: 20px;
   position: relative;
   width: 20px;
 }
-.iphone-11-pro-x-12 .rectangle-3-7h1SkZ {
-  background-color: var(--white);
-  flex-shrink: 1;
-  height: 20px;
-  position: relative;
-  width: 20px;
+
+.iphone-11-pro-x-12 .check-box { filter: grayscale(1) }
+
+button{
+	background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
 }
-.iphone-11-pro-x-12 .rocket-romero-z0dpoe {
+
+.iphone-11-pro-x-12 .guest-name {
   background-color: transparent;
   flex-shrink: 1;
   height: auto;
@@ -252,7 +244,7 @@
   min-height: 21px;
   min-width: 122px;
   position: relative;
-  text-align: center;
+  text-align: left;
   width: auto;
 }
 .iphone-11-pro-x-12 .select-guests-t-split-dish-with-SQ9Gz0 {
@@ -283,19 +275,7 @@
   top: 12px;
   width: 33px;
 }
-.iphone-11-pro-x-12 .sophia-abi-ezzi-7h1SkZ {
-  background-color: transparent;
-  flex-shrink: 1;
-  height: auto;
-  letter-spacing: -0.30px;
-  line-height: normal;
-  margin-left: 12px;
-  min-height: 21px;
-  min-width: 118px;
-  position: relative;
-  text-align: center;
-  width: auto;
-}
+
 .iphone-11-pro-x-12 .split-dish-1Wbicm {
   background-color: transparent;
   flex-shrink: 1;
