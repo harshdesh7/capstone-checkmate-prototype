@@ -11,6 +11,7 @@ export class CapstoneFinalProjStack extends cdk.Stack {
     //  - uuid for everything
     // assign roles in cognito, no passwords in ddb
     // make IAM roles, be very specific with them
+    // add more composite keys
 
     //NOTE: With DynamoDB tables and its NoSQL nature, cannot predefine attributes outside of keys
     //all attributes listed will have to be manually defined with each PutItem request
