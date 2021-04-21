@@ -28,6 +28,8 @@ sessionTabName = os.environ['SessionTable']
 response = {}
 response['headers'] = {}
 response['headers']['Content-Type']= "application/json"
+response['headers']['Access-Control-Allow-Origin'] = "*" #For CORS enabling
+
 # will need to add response['statusCode'] and response['body']
 # in the functions below
 
@@ -110,6 +112,8 @@ def lambda_handler(event, context):
     
     return response
     
+    
+# adds a user to a restaurant table session. If the user is not in the system, add the user to the system too    
 def addUser(uname, tid):
     
     body = {}
@@ -117,7 +121,7 @@ def addUser(uname, tid):
     usrTable = dynamo.Table(usrTabName)
     sessionTable = dynamo.Table(sessionTabName)
     
-    # first check that table is in the db
+    # first check that table id is in the db
     
     try:
         
@@ -190,7 +194,8 @@ def addUser(uname, tid):
         print(e)
         return (500, body)
         
-
+# if a user is in an active restaurant table session, then allow the user to change what amount to
+# contribute to the bill
 def changeAmt(uname, amt):
     
     body = {}
@@ -236,7 +241,8 @@ def changeAmt(uname, amt):
         return (500, body)
     
     
-
+# a user in an active restaurant table session can add or delete a menu item which will be added to the
+# total bill
 def addDelItem(tid, amt, isAdd):
     
     body = {}
@@ -267,7 +273,7 @@ def addDelItem(tid, amt, isAdd):
         
         
         try:
-            
+            # add or delete an item
             if isAdd:
                 newAmt += Decimal(amt)
             else:
@@ -298,7 +304,8 @@ def addDelItem(tid, amt, isAdd):
         return (500, body)
     
     
-
+# closes out active restaurant table session, checks if amount that all users are contributing is
+# equal to total bill, returns final bill splt
 def finish(tid):
     
     body = {}
@@ -384,6 +391,7 @@ def finish(tid):
         print(e)
         return (500, body)
 
+# gets current bill split breakdown of all active users in an active restaurant table session
 def getPriceBreakdown(tid):
     
     body = {}
@@ -420,7 +428,7 @@ def getPriceBreakdown(tid):
         print(e)
         return (500, body)
         
-
+# gets current total bill at an active restaurant table session
 def getTotal(tid):
     
     body = {}
